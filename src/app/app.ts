@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router'; // 👈 agregamos RouterModule
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { firebaseConfig } from '../firebase.config';
+
 // 👇 Importa tus componentes standalone
 import { Header } from './header/header';
-import { About } from './about/about';
-import { Skills } from './skills/skills';
-import { ContactComponent } from './contact/contact';
+import { routes } from './app.routes'; // 👈 importamos las rutas
 
+// Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
@@ -17,18 +17,15 @@ const analytics = getAnalytics(app);
   standalone: true,
   imports: [
     RouterOutlet,
-    Header,
-    About,
-    Skills,
-    ContactComponent
+    RouterModule, // 👈 necesario para usar routerLink
+    Header
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App {
   // Mensaje que el padre enviará al hijo
- mensajeParaContacto = '¡Gracias por visitar mi portafolio! Si deseas contactarme, completa el formulario.';
-
+  mensajeParaContacto = '¡Gracias por visitar mi portafolio! Si deseas contactarme, completa el formulario.';
 
   // Mensaje recibido desde el hijo
   mensajeDesdeHijo = '';

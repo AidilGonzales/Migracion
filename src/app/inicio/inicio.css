@@ -1,0 +1,93 @@
+
+.inicio-hero {
+  background: linear-gradient(135deg, #fce3ec, #f8efff); /* 🌸 Fondo suave */
+  color: #333;
+  text-align: center;
+  padding: 100px 20px;
+  border-bottom: 2px solid #e2d6ff;
+}
+
+.inicio-hero h1 {
+  font-size: 2.5rem;
+  color: #4a3aff;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.intro {
+  font-size: 1.1rem;
+  max-width: 750px;
+  margin: 0 auto 15px;
+  color: #444;
+}
+
+.desc {
+  font-size: 1rem;
+  max-width: 750px;
+  margin: 0 auto 25px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #6a5acd;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #5943b5;
+}
+
+.btn-outline {
+  border: 2px solid #6a5acd;
+  color: #6a5acd;
+}
+
+.btn-outline:hover {
+  background-color: #edeaff;
+}
+
+.inicio-extra {
+  background-color: #fff;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.inicio-extra h2 {
+  font-size: 1.8rem;
+  color: #4a3aff;
+  margin-bottom: 25px;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tech-list li {
+  background-color: #f8f5ff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  color: #333;
+}
