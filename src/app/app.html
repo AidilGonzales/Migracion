@@ -1,0 +1,41 @@
+
+<app-header></app-header>
+
+<main class="site-main">
+  <!-- HERO ligero (mejora visual; no borra nada) -->
+  <section class="hero-slim">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-title">Hola — soy <span>Aidil Gonzales</span></h1>
+        <p class="hero-sub">Ingeniera de Sistemas · Desarrollo web con Angular · Proyectos educativos</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#about">Sobre mí</a>
+        <a class="btn btn-outline" href="#contact">Contactarme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido principal (mantengo tus componentes tal cual) -->
+  <div class="container content-wrap">
+    <app-about></app-about>
+    <app-skills></app-skills>
+
+    <!-- 👇 Comunicación entre componentes (igual al tuyo) -->
+    <app-contact
+      [mensajePadre]="mensajeParaContacto"
+      (mensajeEnviado)="recibirMensaje($event)"
+    ></app-contact>
+
+    <!-- Mostramos el mensaje recibido del hijo -->
+    <div *ngIf="mensajeDesdeHijo" class="mensaje-hijo">
+      <p><strong>Mensaje recibido del hijo:</strong> {{ mensajeDesdeHijo }}</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 — Aidil Gonzales
+  </div>
+</footer>

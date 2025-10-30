@@ -1,0 +1,92 @@
+
+<section id="contact" class="contact-section">
+  <h2>📩 Contacto</h2>
+  <p>Puedes escribirme o encontrarme en mis redes sociales:</p>
+
+  <!-- 🔹 Mensaje recibido del componente padre -->
+  <div *ngIf="mensajePadre" class="mensaje-padre">
+    <p><strong>Mensaje:</strong> {{ mensajePadre }}</p>
+  </div>
+
+  <!-- === Indicador de carga === -->
+  <div *ngIf="cargando" class="loading">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>⏳ Cargando contactos...</p>
+  </div>
+
+  <!-- Lista de contactos (se muestra solo cuando NO está cargando) -->
+  <ul *ngIf="!cargando">
+    <li
+      *ngFor="let c of contactos"
+      [ngClass]="{ 'email': c.tipo === 'email', 'social': c.tipo === 'social' }"
+    >
+      <strong>{{ c.nombre }}:</strong>
+      {{ c.valor | uppercase }}
+    </li>
+  </ul>
+
+  <!-- Fecha usando pipe de fecha -->
+  <p class="fecha">Última actualización: {{ fecha | date: 'fullDate' }}</p>
+
+  <!-- Formulario con property binding, two-way binding y event binding -->
+  <form (submit)="onSubmit($event)" class="contact-form" [style.background-color]="colorBoton">
+    <label for="nombre">Nombre</label>
+    <input
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="nombreUsuario"
+      (input)="onNombreInput($event)"
+      placeholder="Escribe tu nombre"
+      required
+    />
+
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="emailUsuario"
+      placeholder="tu@email.com"
+      required
+    />
+
+    <label for="mensaje">Mensaje</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="4"
+      [(ngModel)]="mensaje"
+      placeholder="Escribe tu mensaje"
+      required
+    ></textarea>
+
+    <!-- property binding en disabled; event binding en click para cambiar color -->
+    <button
+      type="submit"
+      (click)="colorBoton = 'lightgreen'"
+      [disabled]="!nombreUsuario || !emailUsuario || !mensaje"
+    >
+      Enviar
+    </button>
+  </form>
+
+  <!-- Vista previa usando property binding y pipes -->
+  <div *ngIf="nombreUsuario">
+    <p><strong>Vista previa:</strong> Hola {{ nombreUsuario | uppercase }}, tu mensaje sería:</p>
+    <blockquote>{{ mensaje }}</blockquote>
+  </div>
+
+  <!-- Mensaje condicional con ngIf -->
+  <p *ngIf="!cargando && contactos.length > 2" [ngStyle]="{ color: 'green' }">
+    ¡Tienes varias formas de contactarme! 😄
+  </p>
+
+  <!-- Ejemplo de binding de atributo para mostrar estado -->
+  <p>
+    Estado:
+    <span [ngClass]="{ 'activo': activo, 'inactivo': !activo }">
+      {{ activo ? 'Activo' : 'Inactivo' }}
+    </span>
+    <button (click)="toggleActivo()">Cambiar estado</button>
+  </p>
+</section>

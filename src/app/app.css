@@ -1,0 +1,141 @@
+/* ============================
+   app.css — layout limpio y moderno
+   ============================ */
+
+:root{
+  --accent: #5e35b1;
+  --accent-2: #e85a8b;
+  --muted: #6b5f6f;
+  --bg-page: #f7f5fb;
+  --card-bg: #ffffff;
+  --max-width: 1100px;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+body {
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  margin: 0;
+  background: var(--bg-page);
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedor central */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* HERO ligero */
+.hero-slim {
+  background: linear-gradient(90deg, rgba(94,53,177,0.05), rgba(232,90,139,0.02));
+  border-bottom: 1px solid rgba(94,53,177,0.04);
+}
+.hero-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding: 1.4rem 0;
+}
+.hero-title {
+  margin:0;
+  font-size:1.6rem;
+  color: #121212;
+  font-weight:700;
+}
+.hero-title span { color: var(--accent-2); }
+.hero-sub { margin:0.25rem 0 0 0; color:var(--muted); font-size:0.95rem; }
+.hero-cta { display:flex; gap:0.6rem; align-items:center; }
+
+/* buttons */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.45rem 0.85rem;
+  border-radius:9px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow: 0 6px 18px rgba(12,8,20,0.04);
+}
+.btn-primary { background: linear-gradient(90deg,#f093fb,#e85a8b); color:#fff; }
+.btn-outline { background:transparent; color:var(--accent); border:1px solid rgba(94,53,177,0.08); }
+
+/* Main content layout */
+.site-main { padding: 1.2rem 0 3rem 0; }
+.content-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-top: 1.2rem;
+}
+
+/* ABOUT section — centrar y limitar ancho para lectura */
+.about-section {
+  max-width: 720px;
+  margin: 0 auto;           /* centra horizontalmente */
+  padding: 1.8rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(34,34,34,0.04);
+  line-height: 1.5;
+}
+.about-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+.about-section p { color: var(--muted); margin: 0.35rem 0; }
+
+/* Habilidades / Proyectos list style */
+.about-section ul {
+  padding-left: 1.15rem;
+  margin-top: 0.6rem;
+}
+.about-section li { margin: 6px 0; }
+
+/* SMALL adjustments so content not hug right */
+.left-side, .right-side, .content { width:100%; }
+
+/* mensaje hijo */
+.mensaje-hijo {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, rgba(171,140,228,0.06), rgba(232,127,191,0.03));
+  border-left: 4px solid #ab8ce4;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  color: #3b2540;
+  font-weight: 600;
+}
+
+/* footer */
+.site-footer, footer {
+  text-align: center;
+  background: #222;
+  color: white;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* responsive */
+@media (max-width:920px) {
+  .hero-inner { flex-direction: column; text-align:center; gap:0.8rem; }
+  .btn { width: 100%; padding: 0.6rem; border-radius: 12px; }
+  .content-wrap { gap: 1.2rem; padding-top: 0.8rem; }
+  .about-section { padding: 1.2rem; max-width: 92%; }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra horizontalmente */
+  padding: 2rem;
+  gap: 2rem;
+}
+
+app-about {
+  width: 100%;
+  max-width: 750px; /* controla el ancho de lectura */
+}
